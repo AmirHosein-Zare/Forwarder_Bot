@@ -1,4 +1,11 @@
 from decouple import config
 api_token = config("API_TOKEN")
 
-print(api_token)
+from telegram import Update
+from telegram.ext import Updater, CallbackContext
+
+updater = Updater(api_token)
+dispatcher = updater.dispatcher
+
+
+updater.start_polling()
