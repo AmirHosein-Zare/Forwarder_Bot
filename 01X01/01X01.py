@@ -17,4 +17,6 @@ def forwarder_message(update: Update, context: CallbackContext):
     # forward the message
     forwarded_message = message.forward(FORWARD_TO_CHAT_ID)
 
+dispatcher.add_handler(MessageHandler(filters.ALL, forwarder_message))
+
 updater.start_polling()
